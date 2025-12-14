@@ -119,7 +119,7 @@ export default function AdminDashboard() {
           alignItems: 'center'
         }}
       >
-        <FormControl sx={{ mt: 2, width: 400 }}>
+        <FormControl sx={{ mt: 2,  width: { xs: "100%",sm: 300,md: 400 } }}>
           <InputLabel id="sem-label">Search By Semester:</InputLabel>
           <Select
             labelId="sem-label"
