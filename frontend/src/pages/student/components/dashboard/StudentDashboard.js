@@ -112,7 +112,7 @@ export default function StudentDashboard() {
           alignItems: 'center'
         }}
       >
-        <FormControl sx={{ mt: 2, width: 400 }}>
+        <FormControl sx={{ mt: 2,  width: { xs: "100%", sm: 200, md: 400 } }}>
           <InputLabel id="sem-label">Filter Semester :</InputLabel>
           <Select
             labelId="sem-label"
