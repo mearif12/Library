@@ -81,7 +81,7 @@ export default function Home() {
             <img 
                 src="/ice.png" 
                 alt="ICE" 
-                style={{ display: 'block', margin: '65px auto', maxHeight: '350px', maxWidth: '350px' }} 
+                style={{ display: 'block', margin: '40px auto', maxHeight: '350px', maxWidth: '350px',width: "80%",height: "auto" }} 
             />
             <h1 className="animated-title">Welcome to ICE Book Library</h1>
 
