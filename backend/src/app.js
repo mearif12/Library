@@ -5,6 +5,7 @@ const app = express();
 require('dotenv').config();
 const cors = require('cors');
 const path = require('path');
+const fs = require('fs');
 const authRoute = require('./routes/auth/authRoute');
 const adminBookRoute = require('./routes/admin/bookRoute');
 const studentBookRoute = require('./routes/student/bookRoute');
@@ -40,13 +41,21 @@ app.use('/api/student/book',studentBookRoute);
 
 const rootDir = path.resolve(__dirname,"..");
 
+const buildPath = path.join(rootDir, 'frontend', 'build')
+
 // Serve frontend build folder
-app.use(express.static(path.join(rootDir, 'frontend', 'build')));
+app.use(express.static(buildPath));
 
-app.get("*",(req, res) => {
-  res.sendFile(path.join(rootDir, 'frontend', 'build', 'index.html'));
+app.use((req,res,next)=>{
+    if(req.method !== "GET")
+        return next();
+    const indexPath = path.join(buildPath,"index.html");
+    if(fs.existsSync(indexPath)){
+        res.sendFile(indexPath);
+    } else {
+        next();
+    }
 });
-
 
 app.listen(port,()=>{
 
