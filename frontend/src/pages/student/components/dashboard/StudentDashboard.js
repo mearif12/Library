@@ -173,7 +173,9 @@ export default function StudentDashboard() {
                   <Box
                     sx={{
                       width: { xs: '100%', sm: '60%' },
-                      p: 2
+                      //p: 2
+                      pl: { xs: 0, sm: 3 },
+                      mt: { xs: 2, sm: 0 }
                     }}
                   >
                     <Typography variant="h6">
