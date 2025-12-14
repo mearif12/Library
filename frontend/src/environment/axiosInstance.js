@@ -2,7 +2,7 @@ import axios from 'axios';
 import { getToken } from '../utils/common';
 
 const instance = axios.create({
-    baseURL:'http://localhost:4500'
+    baseURL:'https://ice-library-server.onrender.com'
 });
 
 instance.interceptors.request.use((config)=>{
