@@ -179,7 +179,7 @@ export default function AdminDashboard() {
                   <Box
                     sx={{
                       width: { xs: '100%', sm: '60%' },
-                      pl: { xs: 0, sm: 3 },
+                      pl: { xs: 0, sm: 2 },
                       mt: { xs: 2, sm: 0 }
                     }}
                   >
