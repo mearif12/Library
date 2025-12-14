@@ -174,7 +174,7 @@ export default function StudentDashboard() {
                     sx={{
                       width: { xs: '100%', sm: '60%' },
                       //p: 2
-                      pl: { xs: 0, sm: 3 },
+                      pl: { xs: 0, sm: 2 },
                       mt: { xs: 2, sm: 0 }
                     }}
                   >
