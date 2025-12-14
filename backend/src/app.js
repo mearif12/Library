@@ -38,12 +38,13 @@ app.use('/api/admin/book',adminBookRoute);
 
 app.use('/api/student/book',studentBookRoute);
 
+const rootDir = path.resolve(__dirname,"..");
 
 // Serve frontend build folder
-app.use(express.static(path.join(__dirname, '..', 'frontend', 'build')));
+app.use(express.static(path.join(rootDir, 'frontend', 'build')));
 
-app.use((req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'frontend', 'build', 'index.html'));
+app.get("*",(req, res) => {
+  res.sendFile(path.join(rootDir, 'frontend', 'build', 'index.html'));
 });
 
 
