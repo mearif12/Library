@@ -5,6 +5,10 @@ import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 import { signup } from '../../services/auth/auth';
 import { useSnackbar } from 'notistack';
 
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
 const Signup = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -17,6 +21,12 @@ const Signup = () => {
          roll:''
     });
     const [loading,setLoading] = useState(false);
+
+    const [showPassword, setShowPassword] = useState(false);
+  
+    const handleTogglePassword = () => {
+      setShowPassword((prev) => !prev);
+    };
 
     const handleInputChange = (event) => {
         const {name,value} = event.target;
@@ -152,19 +162,31 @@ const Signup = () => {
                 sx={{mb:2}}
               />
 
-              <TextField
+               <TextField
                 required
                 fullWidth
-                name='password'
-                id='password'
-                label='Password'
-                autoComplete='new-password'
-                type='password'
+                name="password"
+                id="password"
+                label="Password"
+                autoComplete="new-password"
+                type={showPassword ? 'text' : 'password'}
                 value={formData.password}
                 onChange={handleInputChange}
-                sx={{mb:2}}
+                sx={{ mb: 2 }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleTogglePassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
-
+                
               <TextField
                 required
                 fullWidth
