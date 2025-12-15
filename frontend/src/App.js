@@ -13,7 +13,8 @@ import PostBook from './pages/admin/components/post-book/PostBook';
 import Home from './pages/header/Home';
 import Footer from './pages/footer/Footer';
 import Contact from './pages/header/Contact';
-
+import HomeRedirect from './pages/header/HomeRedirect';
+import PublicRoute from './pages/header/PublicRoute';
 
 function App() {
 
@@ -38,10 +39,10 @@ function App() {
       <CssBaseline />
        <Header  toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
        <Routes>
-         <Route path='/' element={<Home/>} />
+         <Route path='/' element={<HomeRedirect><Home/></HomeRedirect>} />
           {/**Auth */}
-         <Route path='/register' element={<Signup/>}/>
-         <Route path='/login' element={<Signin/>} />
+         <Route path='/register' element={<PublicRoute><Signup/></PublicRoute>}/>
+         <Route path='/login' element={<PublicRoute><Signin/></PublicRoute>} />
          <Route path='/contact' element={<Contact/>}/>
           {/**Admin */}
          <Route path='/admin/dashboard' element={<AdminDashboard />} />
