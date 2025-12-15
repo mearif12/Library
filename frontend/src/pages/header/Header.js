@@ -52,7 +52,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
           )}
 
           {isAdmin && (
-            <Box sx={{ flexGrow:1,mb:2 }}>
+            <Box sx={{ flexGrow:1,mb:1 }}>
              <AppBar position="fixed" color="secondary">
                <Toolbar>
                   <IconButton onClick={toggleDarkMode} color="inherit" sx={{mr:2}}>
@@ -72,7 +72,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
           )}
 
           {isStudent && (
-            <Box sx={{ flexGrow:1,mb:2 }}>
+            <Box sx={{ flexGrow:1,mb:1 }}>
              <AppBar position="fixed" color="secondary">
                <Toolbar>
                   <IconButton onClick={toggleDarkMode} color="inherit" sx={{mr:2}}>
@@ -82,7 +82,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
                          You are logged in
                    </Typography>
                      
-                   <Button component={Link} to="/student/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'}}}>Dashboard</Button>
+                   <Button component={Link} to="/student/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'}}}>ICE Book</Button>
                    <Button onClick={handleLogOut} color="inherit" sx={{":hover":{backgroundColor:'black'}}}>log out</Button>
                </Toolbar>
              </AppBar>
