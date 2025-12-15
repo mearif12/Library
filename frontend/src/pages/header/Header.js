@@ -82,7 +82,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
                          You are logged in
                    </Typography>
                      
-                   <Button component={Link} to="/student/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'}}}>ICE Book</Button>
+                   <Button component={Link} to="/student/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'},width: '100%',textAlign: 'center',justifyContent: 'center'}}>ICE Books</Button>
                    <Button onClick={handleLogOut} color="inherit" sx={{":hover":{backgroundColor:'black'}}}>log out</Button>
                </Toolbar>
              </AppBar>
