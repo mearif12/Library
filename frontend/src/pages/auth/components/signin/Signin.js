@@ -6,6 +6,11 @@ import { signin } from '../../services/auth/auth';
 import { useSnackbar } from 'notistack';
 import  { saveToken, isAdminLoggedIn, isStudentLoggedIn } from '../../../../utils/common';
 
+import InputAdornment from '@mui/material/InputAdornment';
+import IconButton from '@mui/material/IconButton';
+import Visibility from '@mui/icons-material/Visibility';
+import VisibilityOff from '@mui/icons-material/VisibilityOff';
+
 
 const Signin = () => {
   const { enqueueSnackbar } = useSnackbar();
@@ -16,6 +21,13 @@ const Signin = () => {
          roll:''
     });
     const [loading,setLoading] = useState(false);
+
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleTogglePassword = () => {
+      setShowPassword((prev) => !prev);
+    };
+
 
     const handleInputChange = (event) => {
         const {name,value} = event.target;
@@ -91,19 +103,31 @@ const Signin = () => {
                 sx={{mb:2}}
               />
 
-              <TextField
+             <TextField
                 required
                 fullWidth
-                name='password'
-                id='password'
-                label='Password'
-                autoComplete='new-password'
-                type='password'
+                name="password"
+                id="password"
+                label="Password"
+                autoComplete="new-password"
+                type={showPassword ? 'text' : 'password'}
                 value={formData.password}
                 onChange={handleInputChange}
-                sx={{mb:2}}
+                sx={{ mb: 2 }}
+                InputProps={{
+                  endAdornment: (
+                    <InputAdornment position="end">
+                      <IconButton
+                        onClick={handleTogglePassword}
+                        edge="end"
+                      >
+                        {showPassword ? <VisibilityOff /> : <Visibility />}
+                      </IconButton>
+                    </InputAdornment>
+                  ),
+                }}
               />
-            
+        
               <Button 
                      type="submit" 
                      fullWidth 
