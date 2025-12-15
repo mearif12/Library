@@ -53,7 +53,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
 
           {isAdmin && (
             <Box sx={{ flexGrow:1 }}>
-             <AppBar position="static" color="secondary">
+             <AppBar position="fixed" color="secondary">
                <Toolbar>
                   <IconButton onClick={toggleDarkMode} color="inherit" sx={{mr:2}}>
                     {isDarkMode ? <Brightness7 /> : <Brightness4 />}
@@ -73,7 +73,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
 
           {isStudent && (
             <Box sx={{ flexGrow:1 }}>
-             <AppBar position="static" color="secondary">
+             <AppBar position="fixed" color="secondary">
                <Toolbar>
                   <IconButton onClick={toggleDarkMode} color="inherit" sx={{mr:2}}>
                     {isDarkMode ? <Brightness7 /> : <Brightness4 />}
