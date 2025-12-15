@@ -38,6 +38,7 @@ function App() {
       <ThemeProvider theme={theme}>
       <CssBaseline />
        <Header  toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
+       <div style={{ paddingTop: "64px" }}>
        <Routes>
          <Route path='/' element={<HomeRedirect><Home/></HomeRedirect>} />
           {/**Auth */}
@@ -52,7 +53,8 @@ function App() {
           {/**Student */}
          <Route path='/student/dashboard' element={<StudentDashboard />} />
 
-       </Routes>
+        </Routes>
+        </div>   
        <Footer/>
        </ThemeProvider>
      </>
