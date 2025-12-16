@@ -240,6 +240,7 @@ export default function StudentDashboard() {
                         color="info"
                         endIcon={<Visibility />}
                         onClick={() => handleViewBook(book.bookUrl)}
+                        fullWidth  
                       >
                         View
                       </Button>
