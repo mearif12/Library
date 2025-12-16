@@ -2,6 +2,8 @@ import { useSnackbar } from 'notistack';
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { getBooks, searchBook } from '../../service/student';
+import axios from "axios";
+import { authHeader } from "../../../../utils/common";
 import { 
   Box,
   Button,
@@ -17,6 +19,7 @@ import {
 } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Visibility from '@mui/icons-material/Visibility';
+import LibraryAddIcon from '@mui/icons-material/LibraryAdd';
 
 const Img = styled('img')({
   margin: 'auto',
@@ -99,6 +102,15 @@ export default function StudentDashboard() {
 
   const handleViewBook = (bookUrl) => {
     window.open(bookUrl, '_blank');
+  };
+
+  const addToMyBooks = async (bookId) => {
+    try {
+      await axios.post("http://localhost:4500/api/my-books", { bookId }, {headers:authHeader()});
+      enqueueSnackbar("Added to My Books", { variant: "success" ,autoHideDuration:3000});
+    } catch (error) {
+      enqueueSnackbar("Book already added",{variant:'error',autoHideDuration:3000});
+    }
   };
 
   return (
@@ -208,9 +220,21 @@ export default function StudentDashboard() {
                       sx={{
                         display: 'flex',
                         justifyContent: 'flex-end',
-                        mt: 2
+                        mt: 3,
+                        gap:1,
+                        flexDirection: { xs: 'column', sm: 'row' },
+                        width: '100%'
                       }}
                     >
+                      <Button
+                        variant="outlined"
+                        color="success"
+                        endIcon={<LibraryAddIcon />}
+                        onClick={() => addToMyBooks(book._id)}
+                        fullWidth
+                      >
+                        Add 
+                      </Button>
                       <Button
                         variant="outlined"
                         color="info"
