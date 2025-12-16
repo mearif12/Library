@@ -35,3 +35,14 @@ export const isStudentLoggedIn = () => {
 export const removeToken = () => {
     Cookies.remove(TOKEN);
 }
+
+export const authHeader = () => {
+    const token = getToken();
+    if (token) {
+      return {
+        Authorization: `Bearer ${token}`,
+      };
+    }
+    return {};
+};
+  
