@@ -106,7 +106,7 @@ export default function StudentDashboard() {
 
   const addToMyBooks = async (bookId) => {
     try {
-      await axios.post("http://localhost:4500/api/my-books", { bookId }, {headers:authHeader()});
+      await axios.post("https://ice-library-server.onrender.com/api/my-books", { bookId }, {headers:authHeader()});
       enqueueSnackbar("Added to My Books", { variant: "success" ,autoHideDuration:3000});
     } catch (error) {
       enqueueSnackbar("Book already added",{variant:'error',autoHideDuration:3000});
