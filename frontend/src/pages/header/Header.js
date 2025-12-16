@@ -79,10 +79,11 @@ export default function Header({ toggleDarkMode, isDarkMode }){
                     {isDarkMode ? <Brightness7 /> : <Brightness4 />}
                   </IconButton>
                    <Typography variant="h6" component="div" sx={{flexGrow:1,fontFamily:'cursive'}}>
-                         You are logged in
+                         Good!!<br/>You're Alive
                    </Typography>
                      
-                   <Button component={Link} to="/student/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'},textAlign: 'center'}}>ICE Books</Button>
+                   <Button component={Link} to="/student/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'},textAlign: 'center'}}>All Books</Button>
+                   <Button component={Link} to="/student/my-books" color="inherit" sx={{":hover":{backgroundColor:'black'},textAlign: 'center'}}>My Books</Button>
                    <Button onClick={handleLogOut} color="inherit" sx={{":hover":{backgroundColor:'black'}}}>log out</Button>
                </Toolbar>
              </AppBar>
