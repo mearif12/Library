@@ -59,7 +59,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
                     {isDarkMode ? <Brightness7 /> : <Brightness4 />}
                   </IconButton>
                    <Typography variant="h6" component="div" sx={{flexGrow:1,fontFamily:'cursive'}}>
-                         Admin
+                         Admin 👑
                    </Typography>
                      
                    <Button component={Link} to="/admin/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'}}}>Books</Button>
