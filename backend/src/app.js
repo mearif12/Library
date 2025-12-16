@@ -9,6 +9,8 @@ const fs = require('fs');
 const authRoute = require('./routes/auth/authRoute');
 const adminBookRoute = require('./routes/admin/bookRoute');
 const studentBookRoute = require('./routes/student/bookRoute');
+const myBookRoute = require('./routes/auth/myBookRoute');
+
 
 const port = process.env.PORT || 5000;
 
@@ -38,6 +40,8 @@ app.use('/api/auth',authRoute);
 app.use('/api/admin/book',adminBookRoute);
 
 app.use('/api/student/book',studentBookRoute);
+app.use('/api/my-books',myBookRoute );
+
 
 const rootDir = path.resolve(__dirname,"..");
 
