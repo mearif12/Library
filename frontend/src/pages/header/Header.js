@@ -79,7 +79,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
                     {isDarkMode ? <Brightness7 /> : <Brightness4 />}
                   </IconButton>
                    <Typography variant="h6" component="div" sx={{flexGrow:1,fontFamily:'cursive'}}>
-                         You're Alive 😊
+                         Alive 😊
                    </Typography>
                      
                    <Button component={Link} to="/student/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'},textAlign: 'center'}}>All Books</Button>
