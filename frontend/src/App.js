@@ -15,6 +15,8 @@ import Footer from './pages/footer/Footer';
 import Contact from './pages/header/Contact';
 import HomeRedirect from './pages/header/HomeRedirect';
 import PublicRoute from './pages/header/PublicRoute';
+import StudentRoute from './pages/header/StudentRoute';
+import MyBooks from './pages/student/components/MyBooks';
 
 function App() {
 
@@ -51,7 +53,9 @@ function App() {
          <Route path='/admin/book/:id/edit' element={<UpdateBook/>} />
   
           {/**Student */}
-         <Route path='/student/dashboard' element={<StudentDashboard />} />
+         <Route path='/student/dashboard' element={<StudentRoute><StudentDashboard /></StudentRoute>} />
+         <Route path='/student/my-books' element={<StudentRoute><MyBooks/></StudentRoute>} />
+  
 
         </Routes>
         </div>   
