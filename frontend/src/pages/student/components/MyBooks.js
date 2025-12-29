@@ -1,3 +1,4 @@
+import { useSnackbar } from 'notistack';
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Box,Typography, Button, Grid, Paper } from "@mui/material";
@@ -40,12 +41,15 @@ export default function MyBooks() {
     fetchBooks();
   }, []);
 
+  const { enqueueSnackbar } = useSnackbar();
+  
   const removeBook = async (id) => {
     try {
       await axios.delete(`https://ice-library-server.onrender.com/api/my-books/${id}`, { headers: authHeader() });
       setBooks((prev) => prev.filter((b) => b._id !== id));
+      enqueueSnackbar("Book removed", { variant: "success" ,autoHideDuration:3000});
     } catch (err) {
-      console.error("Error deleting book:", err);
+      enqueueSnackbar("Error deleting book",{variant:'error',autoHideDuration:3000});
     }
   };
 
