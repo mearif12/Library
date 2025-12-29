@@ -49,7 +49,7 @@ export default function MyBooks() {
       setBooks((prev) => prev.filter((b) => b._id !== id));
       enqueueSnackbar("Book removed", { variant: "success" ,autoHideDuration:3000});
     } catch (err) {
-      enqueueSnackbar("Error deleting book",{variant:'error',autoHideDuration:3000});
+      enqueueSnackbar("Error removing book",{variant:'error',autoHideDuration:3000});
     }
   };
 
