@@ -62,8 +62,8 @@ export default function Header({ toggleDarkMode, isDarkMode }){
                          Admin 👑
                    </Typography>
                      
-                   <Button component={Link} to="/admin/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'}}}>Books</Button>
-                   <Button component={Link} to="/admin/book/post" color="inherit" sx={{":hover":{backgroundColor:'black'}}}>Add Book</Button>
+                   <Button component={Link} to="/admin/dashboard" color="inherit" sx={{":hover":{backgroundColor:'black'},textAlign: 'center'}}>All Books</Button>
+                   <Button component={Link} to="/admin/book/post" color="inherit" sx={{":hover":{backgroundColor:'black'},textAlign: 'center'}}>Add Book</Button>
 
                    <Button onClick={handleLogOut} color="inherit" sx={{":hover":{backgroundColor:'black'}}}>log out</Button>
                </Toolbar>
