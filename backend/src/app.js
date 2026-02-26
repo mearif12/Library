@@ -35,10 +35,6 @@ mongoose.connect(mongoURI,{})
     console.log(`connection error : ${error}`);
 })
 
-app.get('/health', (req, res) => {
-  res.status(200).send('OK');
-});
-
 app.use('/api/auth',authRoute);
 
 app.use('/api/admin/book',adminBookRoute);
