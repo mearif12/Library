@@ -6,7 +6,7 @@ import { keyframes } from "@emotion/react";
 
 const marquee = keyframes`
   0% {
-    transform: translateX(0%);
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(-100%);
@@ -90,40 +90,44 @@ export default function Home() {
                 `}
             </style>
             
-          <Box
-            sx={{
-              overflow: "hidden",
-              whiteSpace: "nowrap",
-              background: "linear-gradient(90deg, #121212, #1e1e1e)",
-              borderBottom: "1px solid #333",
-              py: { xs: 0.5, sm: 1 },
-              mt: 0
-            }}
-          >
-            <Box
+           <Box
               sx={{
-                display: "inline-block",
+                overflow: "hidden",
                 whiteSpace: "nowrap",
-                animation: `${marquee} 18s linear infinite`,
+                background: "linear-gradient(90deg, #121212, #1e1e1e)",
+                borderBottom: "1px solid #333",
+                py: { xs: 0.5, sm: 1 },
+                mt: 0
               }}
             >
-              <Typography
+              <Box
                 sx={{
-                  fontFamily: "'Poppins', sans-serif",
-                  fontWeight: 800,
-                  fontSize: { xs: "0.8rem", sm: "1.05rem" },
-                  letterSpacing: "1px",
-                  textTransform: "uppercase",
-                  background: "linear-gradient(90deg, #00f5ff, #00ff95)",
-                  WebkitBackgroundClip: "text",
-                  WebkitTextFillColor: "transparent",
-                  px: 4,
+                  display: "inline-flex",
+                  whiteSpace: "nowrap",
+                  animation: `${marquee} 18s linear infinite`,
                 }}
               >
-                {noticeText}
-              </Typography>
+                {[noticeText, noticeText].map((text, i) => (
+                  <Typography
+                    key={i}
+                    sx={{
+                      fontFamily: "'Poppins', sans-serif",
+                      fontWeight: 800,
+                      fontSize: { xs: "0.8rem", sm: "1.05rem" },
+                      letterSpacing: "1px",
+                      textTransform: "uppercase",
+                      background: "linear-gradient(90deg, #00f5ff, #00ff95)",
+                      WebkitBackgroundClip: "text",
+                      WebkitTextFillColor: "transparent",
+                      px: 4,
+                      flexShrink: 0
+                    }}
+                  >
+                    {text}
+                  </Typography>
+                ))}
+              </Box>
             </Box>
-          </Box>
 
             <img 
                 src="/ice.png" 
