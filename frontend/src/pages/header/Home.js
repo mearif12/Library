@@ -1,7 +1,17 @@
 import React from 'react';
-import { Button } from '@mui/material';
+import { Button,Box,Typography } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { AccountCircle, Login } from '@mui/icons-material'; 
+import { keyframes } from "@emotion/react";
+
+const scrollLeft = keyframes`
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
 
 export default function Home() {
   
@@ -78,6 +88,35 @@ export default function Home() {
                 `}
             </style>
             
+            <Box
+                sx={{
+                    overflow: "hidden",
+                    whiteSpace: "nowrap",
+                    background: "linear-gradient(90deg, #121212, #1e1e1e)",
+                    borderBottom: "1px solid #333",
+                    color:"white",
+                    py: 1.2,
+                }}
+            >
+             <Typography
+                 sx={{
+                    display: "inline-block",
+                    animation: `${scrollLeft} 46s linear infinite`,
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: 800,
+                    fontSize: "1.05rem",
+                    letterSpacing: "1px",
+                    textTransform: "uppercase",
+                    background: "linear-gradient(90deg, #00f5ff, #00ff95)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                 }}
+       
+             >
+              🔔 Notice: This application is hosted on a shared server.You may experience brief delays during high traffic periods.Please use a simple password and log out after use to help reduce traffic. I appreciate your understanding.
+            </Typography>
+          </Box>
+      
             <img 
                 src="/ice.png" 
                 alt="ICE" 
