@@ -4,14 +4,16 @@ import { Link } from 'react-router-dom';
 import { AccountCircle, Login } from '@mui/icons-material'; 
 import { keyframes } from "@emotion/react";
 
-const scrollLeft = keyframes`
+const marquee = keyframes`
   0% {
-    transform: translateX(100%);
+    transform: translateX(0%);
   }
   100% {
-    transform: translateX(-100%);
+    transform: translateX(-50%);
   }
 `;
+const noticeText = "🔔 NOTICE: THIS APPLICATION IS HOSTED ON A SHARED SERVER.YOU MAY EXPERIENCE BRIEF DELAYS DURING HIGH TRAFFIC PERIODS.PLEASE USE A SIMPLE PASSWORD AND LOG OUT AFTER USE TO HELP REDUCE TRAFFIC. I APPRECIATE YOUR UNDERSTANDING.";
+
 
 export default function Home() {
   
@@ -89,34 +91,56 @@ export default function Home() {
             </style>
             
             <Box
-                sx={{
-                    overflow: "hidden",
-                    whiteSpace: "nowrap",
-                    background: "linear-gradient(90deg, #121212, #1e1e1e)",
-                    borderBottom: "1px solid #333",
-                    color:"white",
-                    py: 1.2,
-                }}
+              sx={{
+                overflow: "hidden",
+                whiteSpace: "nowrap",
+                background: "linear-gradient(90deg, #121212, #1e1e1e)",
+                borderBottom: "1px solid #333",
+                py: { xs: 1, sm: 1.2 },  // Adjust padding for mobile
+                marginTop: { xs: 0, sm: 2 },  // Ensures it stays near the header on mobile
+              }}
             >
-             <Typography
-                 sx={{
-                    display: "inline-block",
-                    animation: `${scrollLeft} 46s linear infinite`,
+              <Box
+                sx={{
+                  display: "inline-flex",
+                  minWidth: "200%",
+                  animation: `${marquee} 30s linear infinite`,
+                }}
+              >
+                <Typography
+                  sx={{
                     fontFamily: "'Poppins', sans-serif",
                     fontWeight: 800,
-                    fontSize: "1.05rem",
+                    fontSize: { xs: "0.85rem", sm: "1.05rem" },  // Adjust font size for mobile
                     letterSpacing: "1px",
                     textTransform: "uppercase",
                     background: "linear-gradient(90deg, #00f5ff, #00ff95)",
                     WebkitBackgroundClip: "text",
                     WebkitTextFillColor: "transparent",
-                 }}
-       
-             >
-              🔔 Notice: This application is hosted on a shared server.You may experience brief delays during high traffic periods.Please use a simple password and log out after use to help reduce traffic. I appreciate your understanding.
-            </Typography>
-          </Box>
-      
+                    px: 4,
+                  }}
+                >
+                  {noticeText}
+                </Typography>
+                {/* Duplicate text for seamless scrolling */}
+                <Typography
+                  sx={{
+                    fontFamily: "'Poppins', sans-serif",
+                    fontWeight: 800,
+                    fontSize: { xs: "0.85rem", sm: "1.05rem" },  // Adjust font size for mobile
+                    letterSpacing: "1px",
+                    textTransform: "uppercase",
+                    background: "linear-gradient(90deg, #00f5ff, #00ff95)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    px: 4,
+                  }}
+                >
+                  {noticeText}
+                </Typography>
+              </Box>
+            </Box>
+
             <img 
                 src="/ice.png" 
                 alt="ICE" 
