@@ -5,7 +5,16 @@ import { isAdminLoggedIn,isStudentLoggedIn, removeToken } from '../../utils/comm
 import React from "react";
 import { Brightness4, Brightness7 } from "@mui/icons-material"; 
 
+import { keyframes } from "@emotion/react";
 
+const scrollLeft = keyframes`
+  0% {
+    transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
 
 export default function Header({ toggleDarkMode, isDarkMode }){
   const[isAdmin,setIsAdmin] = useState(false);
@@ -32,6 +41,7 @@ export default function Header({ toggleDarkMode, isDarkMode }){
     return (
         <>
           {!isStudent && !isAdmin && (
+            <>
             <Box sx={{ flexGrow:1 }}>
              <AppBar position="static" color="secondary">
                <Toolbar> 
@@ -49,6 +59,37 @@ export default function Header({ toggleDarkMode, isDarkMode }){
                </Toolbar>
              </AppBar>
           </Box>
+          <Box
+   
+              sx={{
+                  overflow: "hidden",
+                  whiteSpace: "nowrap",
+                  background: "linear-gradient(90deg, #121212, #1e1e1e)",
+                  borderBottom: "1px solid #333",
+                  color:"white",
+                  py: 1.2,
+              }}
+              >
+            <Typography
+
+            sx={{
+              display: "inline-block",
+              animation: `${scrollLeft} 30s linear infinite`,
+              fontFamily: "'Poppins', sans-serif",
+              fontWeight: 800,
+              fontSize: "1.05rem",
+              letterSpacing: "1px",
+              textTransform: "uppercase",
+              background: "linear-gradient(90deg, #00f5ff, #00ff95)",
+              WebkitBackgroundClip: "text",
+              WebkitTextFillColor: "transparent",
+            }}
+
+            >
+            🔔 Notice: This application is hosted on a shared server.You may experience brief delays during high traffic periods.Please use a simple password and log out after use to help reduce traffic. I appreciate your understanding.
+            </Typography>
+            </Box>
+          </>
           )}
 
           {isAdmin && (
