@@ -9,7 +9,7 @@ const marquee = keyframes`
     transform: translateX(0%);
   }
   100% {
-    transform: translateX(-50%);
+    transform: translateX(-100%);
   }
 `;
 const noticeText = "🔔 NOTICE: THIS APPLICATION IS HOSTED ON A SHARED SERVER.YOU MAY EXPERIENCE BRIEF DELAYS DURING HIGH TRAFFIC PERIODS.PLEASE USE A SIMPLE PASSWORD AND LOG OUT AFTER USE TO HELP REDUCE TRAFFIC. I APPRECIATE YOUR UNDERSTANDING.";
@@ -90,56 +90,40 @@ export default function Home() {
                 `}
             </style>
             
+          <Box
+            sx={{
+              overflow: "hidden",
+              whiteSpace: "nowrap",
+              background: "linear-gradient(90deg, #121212, #1e1e1e)",
+              borderBottom: "1px solid #333",
+              py: { xs: 0.5, sm: 1 },
+              mt: 0
+            }}
+          >
             <Box
               sx={{
-                overflow: "hidden",
+                display: "inline-block",
                 whiteSpace: "nowrap",
-                background: "linear-gradient(90deg, #121212, #1e1e1e)",
-                borderBottom: "1px solid #333",
-                py: { xs: 1, sm: 1.2 },  // Adjust padding for mobile
-                marginTop: { xs: 0, sm: 2 },  // Ensures it stays near the header on mobile
+                animation: `${marquee} 18s linear infinite`,
               }}
             >
-              <Box
+              <Typography
                 sx={{
-                  display: "inline-flex",
-                  minWidth: "200%",
-                  animation: `${marquee} 30s linear infinite`,
+                  fontFamily: "'Poppins', sans-serif",
+                  fontWeight: 800,
+                  fontSize: { xs: "0.8rem", sm: "1.05rem" },
+                  letterSpacing: "1px",
+                  textTransform: "uppercase",
+                  background: "linear-gradient(90deg, #00f5ff, #00ff95)",
+                  WebkitBackgroundClip: "text",
+                  WebkitTextFillColor: "transparent",
+                  px: 4,
                 }}
               >
-                <Typography
-                  sx={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 800,
-                    fontSize: { xs: "0.85rem", sm: "1.05rem" },  // Adjust font size for mobile
-                    letterSpacing: "1px",
-                    textTransform: "uppercase",
-                    background: "linear-gradient(90deg, #00f5ff, #00ff95)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    px: 4,
-                  }}
-                >
-                  {noticeText}
-                </Typography>
-                {/* Duplicate text for seamless scrolling */}
-                <Typography
-                  sx={{
-                    fontFamily: "'Poppins', sans-serif",
-                    fontWeight: 800,
-                    fontSize: { xs: "0.85rem", sm: "1.05rem" },  // Adjust font size for mobile
-                    letterSpacing: "1px",
-                    textTransform: "uppercase",
-                    background: "linear-gradient(90deg, #00f5ff, #00ff95)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    px: 4,
-                  }}
-                >
-                  {noticeText}
-                </Typography>
-              </Box>
+                {noticeText}
+              </Typography>
             </Box>
+          </Box>
 
             <img 
                 src="/ice.png" 
