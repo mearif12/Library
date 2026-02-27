@@ -7,9 +7,18 @@ import { Brightness4, Brightness7 } from "@mui/icons-material";
 
 import { keyframes } from "@emotion/react";
 
-const scrollLeft = keyframes`
+const scrollLeftDk = keyframes`
   0% {
     transform: translateX(50%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+`;
+
+const scrollLeftSm = keyframes`
+  0% {
+    transform: translateX(20%);
   }
   100% {
     transform: translateX(-100%);
@@ -74,7 +83,10 @@ export default function Header({ toggleDarkMode, isDarkMode }){
 
             sx={{
               display: "inline-block",
-              animation: `${scrollLeft} 30s linear infinite`,
+              animation: {
+                sm:`${scrollLeftDk} 30s linear infinite`,
+                xs:`${scrollLeftSm} 30s linear infinite`
+              },
               fontFamily: "'Poppins', sans-serif",
               fontWeight: 800,
               fontSize: "1.05rem",
