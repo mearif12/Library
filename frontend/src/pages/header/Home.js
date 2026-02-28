@@ -5,7 +5,7 @@ import { AccountCircle, Login } from '@mui/icons-material';
 
 export default function Home() {
   
-  const text = "Welcome to ICE Book Library.";
+  const text = "Welcome to ICE Book Library.🎉";
   const [displayed, setDisplayed] = useState("");
   const [index, setIndex] = useState(0);
 
@@ -154,7 +154,6 @@ export default function Home() {
             />
             <h1 className="animated-title">
                  {displayed}
-                 <span style={{ display: 'inline-block', transform: 'rotate(90deg)' }}>🎉</span> 
                  <span className="cursor"/>  
             </h1>
             <div className="button-container">
