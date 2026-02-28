@@ -68,7 +68,7 @@ export default function Home() {
 
                     .cursor{
                       display:inline-block;
-                      width:8px;
+                      width:12px;
                       height:1em;
                       border-right:2px solid white;
                       margin-left:1px;
