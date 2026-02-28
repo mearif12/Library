@@ -1,9 +1,31 @@
-import React from 'react';
+// import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { AccountCircle, Login } from '@mui/icons-material'; 
 
 export default function Home() {
+  
+  const text = "Welcome to ICE Book Library";
+  const [displayed, setDisplayed] = useState("");
+  const [index, setIndex] = useState(0);
+
+  // typing animation loop
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      if (index < text.length) {
+        setDisplayed(prev => prev + text[index]);
+        setIndex(index + 1);
+      } else {
+        setTimeout(() => {
+          setDisplayed("");
+          setIndex(0);
+        }, 2500);
+      }
+    }, 70);
+
+    return () => clearTimeout(timeout);
+  }, [index]);
   
     return (
         <>
@@ -42,7 +64,22 @@ export default function Home() {
                         font-weight: bolder;
                         animation: animate 2.5s linear infinite;
                         
+                    } 
+
+                    .cursor{
+                      display:inline-block;
+                      width:8px;
+                      height:1em;
+                      background:white;
+                      margin-left:4px;
+                      animation:blink 1s infinite;
                     }
+          
+                    @keyframes blink{
+                      0%,50%,100%{opacity:1}
+                      25%,75%{opacity:0}
+                    }
+
                     
                     .button-container {
                         display: flex;
@@ -60,6 +97,19 @@ export default function Home() {
                         transition: all 0.3s ease;
                     }
 
+                     @media (max-width: 600px) {
+                      .button-container {
+                        flex-direction: column;  /* stack vertically */
+                        gap: 15px;
+                        margin-top: 1.5rem;
+                      }
+                    
+                      .auth-button {
+                        width: 80%; /* take most of the screen */
+                        max-width: 250px;
+                        margin: 0 auto;
+                      }
+                    }
                     
                     .sign-up-button {
                         background: linear-gradient(45deg, #6a11cb, #2575fc); 
@@ -99,9 +149,10 @@ export default function Home() {
                 className="logo-slide"
                 style={{ display: 'block', margin: '40px auto', maxHeight: '350px', maxWidth: '350px',width: "80%",height: "auto" }} 
             />
-            <h1 className="animated-title">Welcome to ICE Book Library</h1>
-
-
+            <h1 className="animated-title">
+                 {displayed}
+                 <span className="cursor"/>  
+            </h1>
             <div className="button-container">
             
             <Button
