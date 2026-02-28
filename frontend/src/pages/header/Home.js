@@ -14,6 +14,21 @@ export default function Home() {
                             background-position: 200%;
                         }
                     }
+                    /* added logo slide animation */
+                    @keyframes slideDown {
+                        from {
+                        opacity:0;
+                        transform:translateY(-80px) scale(.8);
+                        }
+                        to {
+                        opacity:1;
+                        transform:translateY(0) scale(1);
+                        }
+                    }
+
+                    .logo-slide{
+                        animation:slideDown 1.3s ease forwards;
+                    }
                   
                     .animated-title {
                         text-align: center;
@@ -81,6 +96,7 @@ export default function Home() {
             <img 
                 src="/ice.png" 
                 alt="ICE" 
+                className="logo-slide"
                 style={{ display: 'block', margin: '40px auto', maxHeight: '350px', maxWidth: '350px',width: "80%",height: "auto" }} 
             />
             <h1 className="animated-title">Welcome to ICE Book Library</h1>
