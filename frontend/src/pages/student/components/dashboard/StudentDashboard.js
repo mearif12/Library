@@ -227,7 +227,7 @@ export default function StudentDashboard() {
                       }}
                     >
                       <Button
-                        variant="sharp"
+                        variant="outlined"
                         color="success"
                         endIcon={<LibraryAddIcon />}
                         onClick={() => addToMyBooks(book._id)}
@@ -236,7 +236,7 @@ export default function StudentDashboard() {
                         Add 
                       </Button>
                       <Button
-                        variant="filled"
+                        variant="outlined"
                         color="info"
                         endIcon={<Visibility />}
                         onClick={() => handleViewBook(book.bookUrl)}
