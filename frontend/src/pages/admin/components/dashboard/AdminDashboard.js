@@ -153,7 +153,7 @@ export default function AdminDashboard() {
                     borderRadius: 2,
                     transition: 'all 0.3s ease', 
                     '&:hover': {
-                      transform: 'scale(1.1)',
+                      transform: 'scale(0.9)',
                       boxShadow: 7, 
                       fontWeight:'bolder'          
                     }
