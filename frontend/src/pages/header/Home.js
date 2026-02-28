@@ -69,13 +69,13 @@ export default function Home() {
 
                     .cursor{
                       display:inline-block;
-                      width:8px;
+                      width:15px;
                       height:1em;
                       border-right:2px solid white;
-                      margin-left:4px;
+                      margin-left:2px;
                       animation:blink 1s infinite;
                       vertical-align: baseline;
-                      background: white; 
+                      background: gray; 
                       position: relative; 
                       z-index: 1; 
                     }
