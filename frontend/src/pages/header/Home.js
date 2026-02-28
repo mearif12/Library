@@ -1,4 +1,3 @@
-// import React from 'react';
 import React, { useEffect, useState } from 'react';
 import { Button } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -69,10 +68,10 @@ export default function Home() {
 
                     .cursor{
                       display:inline-block;
-                      width:6px;
+                      width:8px;
                       height:1em;
                       border-right:2px solid white;
-                      margin-left:2px;
+                      margin-left:1px;
                       animation:blink 1s infinite;
                       vertical-align: baseline;
                       background: white; 
