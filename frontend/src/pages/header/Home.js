@@ -68,19 +68,19 @@ export default function Home() {
 
                     .cursor{
                       display:inline-block;
-                      width:8px;
+                      width:2px;
                       height:1em;
-                      background:white;
+                      border-right:2px solid white;
                       margin-left:4px;
                       animation:blink 1s infinite;
+                      vertical-align: bottom;
                     }
-          
+                    
                     @keyframes blink{
                       0%,50%,100%{opacity:1}
                       25%,75%{opacity:0}
                     }
 
-                    
                     .button-container {
                         display: flex;
                         justify-content: center;
