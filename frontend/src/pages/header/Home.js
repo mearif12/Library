@@ -104,7 +104,7 @@ export default function Home() {
                       .button-container {
                         flex-direction: column;  /* stack vertically */
                         gap: 15px;
-                        margin-top: 2rem;
+                        margin-top: 2.3rem;
                       }
                     
                       .auth-button {
