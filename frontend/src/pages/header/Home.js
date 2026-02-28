@@ -63,6 +63,7 @@ export default function Home() {
                         font-size: 3rem;
                         font-weight: bolder;
                         animation: animate 2.5s linear infinite;
+                        position: relative;
                         
                     } 
 
@@ -74,6 +75,10 @@ export default function Home() {
                       margin-left:4px;
                       animation:blink 1s infinite;
                       vertical-align: bottom;
+                      background: white; 
+                      margin-left: 4px;
+                      position: relative; 
+                      z-index: 1; 
                     }
                     
                     @keyframes blink{
