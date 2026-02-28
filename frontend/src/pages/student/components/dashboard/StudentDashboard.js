@@ -159,7 +159,7 @@ export default function StudentDashboard() {
                     borderRadius: 2,
                     transition: 'all 0.3s ease', 
                     '&:hover': {
-                      transform: 'scale(0.8)', 
+                      transform: 'scale(0.9)', 
                       boxShadow: 7,
                       fontWeight:'bolder'
                     }
@@ -227,7 +227,7 @@ export default function StudentDashboard() {
                       }}
                     >
                       <Button
-                        variant="rounded"
+                        variant="sharp"
                         color="success"
                         endIcon={<LibraryAddIcon />}
                         onClick={() => addToMyBooks(book._id)}
@@ -236,7 +236,7 @@ export default function StudentDashboard() {
                         Add 
                       </Button>
                       <Button
-                        variant="rounded"
+                        variant="filled"
                         color="info"
                         endIcon={<Visibility />}
                         onClick={() => handleViewBook(book.bookUrl)}
