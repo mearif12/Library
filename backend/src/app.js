@@ -35,6 +35,15 @@ mongoose.connect(mongoURI,{})
     console.log(`connection error : ${error}`);
 })
 
+// Health check route for UptimeRobot
+app.get('/ping', (req, res) => {
+    res.status(200).json({
+        status: "OK",
+        message: "Server is running",
+        timestamp: new Date()
+    });
+});
+
 app.use('/api/auth',authRoute);
 
 app.use('/api/admin/book',adminBookRoute);
@@ -61,14 +70,6 @@ app.use((req,res,next)=>{
     }
 });
 
-// Health check route for UptimeRobot
-app.get('/ping', (req, res) => {
-    res.status(200).json({
-        status: "OK",
-        message: "Server is running",
-        timestamp: new Date()
-    });
-});
 
 app.listen(port,()=>{
 
