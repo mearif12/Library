@@ -61,6 +61,15 @@ app.use((req,res,next)=>{
     }
 });
 
+// Health check route for UptimeRobot
+app.get('/ping', (req, res) => {
+    res.status(200).json({
+        status: "OK",
+        message: "Server is running",
+        timestamp: new Date()
+    });
+});
+
 app.listen(port,()=>{
 
     console.log(`The server is running at http://localhost:${port}`);
